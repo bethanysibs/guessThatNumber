@@ -24,6 +24,12 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".number").textContent = secretNumber;
     let newScore = (document.querySelector(".highscore").textContent = score);
   }
+
+  if (score <= 0) {
+    document.querySelector(".message").textContent = "YOU LOSE!";
+    document.body.style.backgroundColor = "red";
+    document.querySelector(".score").textContent = "0";
+  }
 });
 
 //again button
@@ -31,7 +37,7 @@ document.querySelector(".again").addEventListener("click", function () {
   secretNumber = Math.floor(Math.random() * 20) + 1;
   console.log(secretNumber);
   document.querySelector(".message").textContent = "❓Start guessing!";
-  document.body.style.backgroundColor = "red";
+  document.body.style.backgroundColor = "gray";
   document.querySelector(".number").textContent = "?";
   score = Number((document.querySelector(".score").textContent = 20));
 });
