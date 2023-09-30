@@ -30,12 +30,14 @@ document.querySelector(".check").addEventListener("click", function () {
     //When the player wins
   } else if (guess === secretNumber) {
     document.querySelector(".message").textContent = "🎉 You are correct!!!";
+
     //style structure 1
     document.querySelector("body .number").style = "width: 30rem";
+
     //style structure 2
     document.querySelector("body").style.backgroundColor = "green";
-
     document.querySelector(".number").textContent = secretNumber;
+
     //if current score is greater than highscore, replace highscore with the current score
     if (score > highScore) {
       highScore = document.querySelector(".highscore").textContent = score;
