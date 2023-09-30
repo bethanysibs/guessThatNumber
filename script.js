@@ -1,7 +1,8 @@
 let rolls = 120; //
 let secretNumber = Math.trunc(Math.random() * rolls) + 1;
 console.log(secretNumber);
-let score = rolls;
+let score = Number((document.querySelector(".score").textContent = rolls));
+
 let highScore = (document.querySelector(".highscore").textContent = "");
 document.querySelector(".between").textContent = "<< 1 - " + rolls + " >>";
 
@@ -38,6 +39,7 @@ document.querySelector(".check").addEventListener("click", function () {
     //if current score is greater than highscore, replace highscore with the current score
     if (score > highScore) {
       highScore = document.querySelector(".highscore").textContent = score;
+      alert("New highscore! " + highScore);
     }
     // console.log("high score" + highScore);
     // console.log(" score" + score);
@@ -54,11 +56,13 @@ document.querySelector(".check").addEventListener("click", function () {
 //again button
 document.querySelector(".again").addEventListener("click", function () {
   secretNumber = Math.floor(Math.random() * rolls) + 1;
+  score = Number((document.querySelector(".score").textContent = rolls));
+
   console.log(secretNumber);
+
   document.querySelector(".guess").value = "";
   document.querySelector(".message").textContent = "Start guessing...";
   document.querySelector("body .number").textContent = "?";
   document.querySelector("body .number").style = "width: 15rem";
   document.body.style.backgroundColor = "";
-  score = Number((document.querySelector(".score").textContent = rolls));
 });
