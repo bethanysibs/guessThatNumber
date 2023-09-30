@@ -1,4 +1,4 @@
-let rolls = 120; //
+let rolls = 20; //
 let secretNumber = Math.trunc(Math.random() * rolls) + 1;
 console.log(secretNumber);
 let score = Number((document.querySelector(".score").textContent = rolls));
@@ -13,9 +13,6 @@ const displayMessage = function (message) {
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
 
-  if (!guess) {
-    displayMessage("⛔ No input!");
-  }
   if (guess === secretNumber) {
     displayMessage("🎉 You are correct!!!");
 
@@ -34,13 +31,16 @@ document.querySelector(".check").addEventListener("click", function () {
     //refactored
   } else if (guess !== secretNumber) {
     displayMessage(
-      guess < secretNumber && guess >= 1 ? "👆 Higher." : "👇 Lower."
+      guess < secretNumber && guess >= 0 ? "👆 Higher." : "👇 Lower."
     );
     score = score - 1; //score--
     document.querySelector(".score").textContent = score;
 
     if (guess > rolls + 1) {
       displayMessage("⛔ Invalid input!");
+    }
+    if (!guess) {
+      displayMessage("⛔ No input!");
     }
   }
   //long cut or not refactored
