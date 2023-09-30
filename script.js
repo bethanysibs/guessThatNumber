@@ -36,6 +36,7 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector("body").style.backgroundColor = "green";
 
     document.querySelector(".number").textContent = secretNumber;
+    //if current score is greater than highscore, replace highscore with the current score
     if (score > highScore) {
       highScore = document.querySelector(".highscore").textContent = score;
     }
