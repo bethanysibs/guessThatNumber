@@ -1,7 +1,9 @@
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let rolls = 120; //
+let secretNumber = Math.trunc(Math.random() * rolls) + 1;
 console.log(secretNumber);
-let score = 20;
+let score = rolls;
 let highScore = (document.querySelector(".highscore").textContent = "");
+document.querySelector(".between").textContent = "<< 1 - " + rolls + " >>";
 
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
@@ -55,12 +57,12 @@ document.querySelector(".check").addEventListener("click", function () {
 
 //again button
 document.querySelector(".again").addEventListener("click", function () {
-  secretNumber = Math.floor(Math.random() * 20) + 1;
+  secretNumber = Math.floor(Math.random() * rolls) + 1;
   console.log(secretNumber);
   document.querySelector(".guess").value = "";
   document.querySelector(".message").textContent = "Start guessing...";
   document.querySelector("body .number").textContent = "?";
   document.querySelector("body .number").style = "width: 15rem";
   document.body.style.backgroundColor = "";
-  score = Number((document.querySelector(".score").textContent = 20));
+  score = Number((document.querySelector(".score").textContent = rolls));
 });
