@@ -12,23 +12,7 @@ document.querySelector(".check").addEventListener("click", function () {
   if (!guess) {
     document.querySelector(".message").textContent = "⛔ No input!";
   }
-
-  //When the number is too low
-  if (guess < secretNumber && guess >= 1) {
-    document.querySelector(".message").textContent = "👆 Higher.";
-    score = score - 1; //score--
-    document.querySelector(".score").textContent = score;
-  } else if (guess >= rolls + 1) {
-    document.querySelector(".message").textContent = "⛔ Invalid input!";
-
-    //When the number is too high
-  } else if (guess > secretNumber) {
-    document.querySelector(".message").textContent = "👇 Lower.";
-    score = score - 1; //score--
-    document.querySelector(".score").textContent = score;
-
-    //When the player wins
-  } else if (guess === secretNumber) {
+  if (guess === secretNumber) {
     document.querySelector(".message").textContent = "🎉 You are correct!!!";
 
     //style structure 1
@@ -43,9 +27,30 @@ document.querySelector(".check").addEventListener("click", function () {
       highScore = document.querySelector(".highscore").textContent = score;
       alert("New highscore! " + highScore);
     }
-    // console.log("high score" + highScore);
-    // console.log(" score" + score);
+    //refactored
+  } else if (guess !== secretNumber) {
+    document.querySelector(".message").textContent =
+      guess < secretNumber && guess >= 1 ? "👆 Higher." : "👇 Lower.";
+    score = score - 1; //score--
+    document.querySelector(".score").textContent = score;
+  } else if (guess >= rolls + 1) {
+    document.querySelector(".message").textContent = "⛔ Invalid input!";
   }
+
+  //long cut or not refactored
+  //When the number is too low
+  // else if (guess < secretNumber && guess >= 1) {
+  //   document.querySelector(".message").textContent = "👆 Higher.";
+  //   score = score - 1; //score--
+  //   document.querySelector(".score").textContent = score;
+  // } else if (guess >= rolls + 1) {
+  //   document.querySelector(".message").textContent = "⛔ Invalid input!";
+
+  //   //When the number is too high
+  // } else if (guess > secretNumber) {
+  //   document.querySelector(".message").textContent = "👇 Lower.";
+  //   score = score - 1; //score--
+  //   document.querySelector(".score").textContent = score;
 
   //if the score is less than 0, then the player loses
   if (score <= 0) {
