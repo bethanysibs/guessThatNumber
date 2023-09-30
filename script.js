@@ -52,8 +52,11 @@ document.querySelector(".again").addEventListener("click", function () {
   console.log(secretNumber);
   document.querySelector(".guess").value = "";
   document.querySelector(".message").textContent = "Start guessing...";
-  document.querySelector("body .number").style = "";
+  document.querySelector("body .number").textContent = "?";
+  document.querySelector("body .number").style = "width: 15rem";
 
   document.body.style.backgroundColor = "";
   score = Number((document.querySelector(".score").textContent = 20));
+
+  //if score > highscore then score will be the new highscore
 });
