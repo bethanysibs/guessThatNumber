@@ -1,6 +1,7 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 console.log(secretNumber);
 let score = 20;
+let highScore = (document.querySelector(".highscore").textContent = "");
 
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
@@ -35,7 +36,12 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector("body").style.backgroundColor = "green";
 
     document.querySelector(".number").textContent = secretNumber;
-    let newScore = (document.querySelector(".highscore").textContent = score);
+    if (score > highScore) {
+      highScore = document.querySelector(".highscore").textContent = score;
+    }
+
+    // console.log("high score" + highScore);
+    // console.log(" score" + score);
   }
 
   //if the score is less than 0, then the player loses
@@ -54,9 +60,6 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".message").textContent = "Start guessing...";
   document.querySelector("body .number").textContent = "?";
   document.querySelector("body .number").style = "width: 15rem";
-
   document.body.style.backgroundColor = "";
   score = Number((document.querySelector(".score").textContent = 20));
-
-  //if score > highscore then score will be the new highscore
 });
