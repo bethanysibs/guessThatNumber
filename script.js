@@ -3,7 +3,7 @@ let secretNumber = Math.trunc(Math.random() * rolls) + 1;
 console.log(secretNumber);
 let score = Number((document.querySelector(".score").textContent = rolls));
 
-let highScore = (document.querySelector(".highscore").textContent = "");
+let highScore = (document.querySelector(".highscore").textContent = "0");
 document.querySelector(".between").textContent = "<< 1 - " + rolls + " >>";
 
 document.querySelector(".check").addEventListener("click", function () {
@@ -33,6 +33,7 @@ document.querySelector(".check").addEventListener("click", function () {
       guess < secretNumber && guess >= 1 ? "👆 Higher." : "👇 Lower.";
     score = score - 1; //score--
     document.querySelector(".score").textContent = score;
+
     if (guess > rolls + 1) {
       document.querySelector(".message").textContent = "⛔ Invalid input!";
     }
