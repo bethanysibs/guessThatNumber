@@ -12,8 +12,9 @@ const displayMessage = function (message) {
 
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
-
-  if (guess === secretNumber) {
+  if (!guess) {
+    displayMessage("⛔ No input!");
+  } else if (guess === secretNumber) {
     displayMessage("🎉 You are correct!!!");
 
     //style structure 1
@@ -38,9 +39,6 @@ document.querySelector(".check").addEventListener("click", function () {
 
     if (guess > rolls + 1) {
       displayMessage("⛔ Invalid input!");
-    }
-    if (!guess) {
-      displayMessage("⛔ No input!");
     }
   }
   //long cut or not refactored
