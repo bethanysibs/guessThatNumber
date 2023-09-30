@@ -33,10 +33,10 @@ document.querySelector(".check").addEventListener("click", function () {
       guess < secretNumber && guess >= 1 ? "👆 Higher." : "👇 Lower.";
     score = score - 1; //score--
     document.querySelector(".score").textContent = score;
-  } else if (guess >= rolls + 1) {
-    document.querySelector(".message").textContent = "⛔ Invalid input!";
+    if (guess > rolls + 1) {
+      document.querySelector(".message").textContent = "⛔ Invalid input!";
+    }
   }
-
   //long cut or not refactored
   //When the number is too low
   // else if (guess < secretNumber && guess >= 1) {
