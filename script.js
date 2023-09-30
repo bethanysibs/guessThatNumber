@@ -17,7 +17,7 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent = "👆 Higher.";
     score = score - 1; //score--
     document.querySelector(".score").textContent = score;
-  } else if (guess >= 21) {
+  } else if (guess >= rolls + 1) {
     document.querySelector(".message").textContent = "⛔ Invalid input!";
 
     //When the number is too high
